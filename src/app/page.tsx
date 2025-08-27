@@ -1,103 +1,54 @@
-import Image from "next/image";
+import Header from '@/components/Header';
+import SolutionCard from '@/components/SolutionCard';
+import Cta from '@/components/Cta';
+import Footer from '@/components/Footer';
+
+const solutions = [
+  {
+    emoji: '🚀',
+    title: 'Internet de Alta Performance',
+    description: 'Fibra e Link Dedicado para seu negócio nunca parar.',
+    link: 'https://api.whatsapp.com/send?phone=554195058450&text=Olá!%20Visitei%20sua%20página%20e%20gostaria%20de%20receber%20mais%20informações%20sobre%20os%20planos%20de%20Internet%20Fibra%20e%20Link%20Dedicado%20para%20minha%20empresa.',
+  },
+  {
+    emoji: '💻',
+    title: 'Tecnologia e Equipamentos',
+    description: 'Vivo Tech com aluguel e aparelhos com desconto.',
+    link: 'https://api.whatsapp.com/send?phone=554195058450&text=Olá!%20Visitei%20sua%20página%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20licenças%20Microsoft%20e%20Google%20para%20empresas.',
+  },
+  {
+    emoji: '📞',
+    title: 'Comunicação Eficiente',
+    description: 'Fixo Virtual (Vivo Voz Negócio) para sua equipe conectada.',
+    link: 'https://api.whatsapp.com/send?phone=554195058450&text=Olá!%20Visitei%20sua%20página%20e%20tenho%20interesse%20em%20conhecer%20o%20Vivo%20Voz%20Negócio%20(Fixo%20Virtual)%20para%20a%20minha%20equipe.',
+  },
+  {
+    emoji: '📊',
+    title: 'Otimização e Produtividade',
+    description: 'Licenças Microsoft/Google para impulsionar sua equipe.',
+    link: 'https://api.whatsapp.com/send?phone=554195058450&text=Olá!%20Visitei%20sua%20página%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20licenças%20Microsoft%20e%20Google%20para%20empresas.',
+  },
+  {
+    emoji: '💰',
+    title: 'Economia para o Seu Negócio',
+    description: 'Energia Vivo: Reduza sua conta em até 30%.',
+    link: 'https://api.whatsapp.com/send?phone=554195058450&text=Olá!%20Visitei%20sua%20página%20e%20gostaria%20de%20receber%20uma%20análise%20sobre%20a%20solução%20Energia%20Vivo%20e%20a%20economia%20que%20ela%20pode%20gerar%20para%20minha%20empresa.',
+  },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-8">
+      <div className="w-full max-w-4xl bg-white rounded-xl shadow-2xl p-6 sm:p-10 text-center">
+        <Header />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {solutions.map((solution, index) => (
+            <SolutionCard key={index} {...solution} />
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <Cta />
+        <Footer />
+      </div>
     </div>
   );
 }
